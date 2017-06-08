@@ -1,0 +1,31 @@
+{
+  "name": "project-sharon",
+  "version": "0.0.1",
+  "description": "A solution to having to manage local/remote computers autonomously without paying a single cent.",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm start",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v0lture/project-sharon.git"
+  },
+  "keywords": [
+    "remote",
+    "access",
+    "electron",
+    "computer",
+    "management",
+    "console"
+  ],
+  "author": "maxbycode",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/v0lture/project-sharon/issues"
+  },
+  "homepage": "https://github.com/v0lture/project-sharon#readme",
+  "dependencies": {
+    "electron": "^1.6.10"
+  }
+}
