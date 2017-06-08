@@ -1,1 +1,159 @@
-<h1>hello world</h1>
+<DOCTYPE html>
+<html>
+
+    <head>
+        <title>Project Sharon</title>
+
+        <!-- Design resources -->
+        <link rel="stylesheet" href="css/materialize.min.css">
+        <link rel="stylesheet" href="css/sharon.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- header -->
+        <div class="header z-depth-2">
+            <div class="right">
+                <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Search"><i class="material-icons">search</i></a>
+                <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Update"><i class="material-icons">sync</i></a>
+                <a href="settings.html" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Settings"><i class="material-icons">settings</i></a>
+            </div>
+            <h5><img src="img/app.png" alt="Project Sharon App Logo" style="height: 24px;"></img> <span style="padding-left: 10px;">Project Sharon</span></h5>
+        </div>
+
+        <!-- Indeterminate loader -->
+        <div class="progress" id="toploader" style="display:none;">
+            <div class="indeterminate accent"></div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="row">
+            <div class="col s12">
+            <ul class="tabs">
+                <li class="tab"><a href="#applications" class="waves-effect waves-light">Applications</a></li>
+                <li class="tab"><a href="#files" class="waves-effect waves-light">Files</a></li>
+                <li class="tab"><a href="#installed" class="waves-effect waves-light">Installed</a></li>
+                <li class="tab"><a href="#progress" class="waves-effect waves-light">Progress</a></li>
+            </ul>
+            </div>
+            <div id="applications" class="col s12">
+                <div class="fileitem">
+
+                    <p class="title">Slack</p>
+                    <p class="desc">Where Work Happens</p>
+                    <p class="desc"><small>Version v1.0.0</small></p><br />
+
+                    <div class="right">
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Website"><i class="material-icons accent-text">language</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Info"><i class="material-icons accent-text">info_outline</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Install"><i class="material-icons accent-text">file_download</i></a>
+                    </div>
+                </div>
+
+                <div class="fileitem">
+
+                    <p class="title">Microsoft Office 2016</p>
+                    <p class="desc">A suite of applications for word processing, presentations, data analysis and more.</p>
+                    <p class="desc"><small>Version v1.0.0</small></p><br />
+
+                    <div class="right">
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Enforced by admininstrator"><i class="material-icons accent-text">business</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Website"><i class="material-icons accent-text">language</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Info"><i class="material-icons accent-text">info_outline</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Install"><i class="material-icons accent-text">file_download</i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="files" class="col s12">
+                <div class="fileitem">
+
+                    <p class="title">v0lture Wallpaper 2017</p>
+                    <p class="desc">v0lture_Wallpaper2017.jpeg</p><br />
+
+                    <div class="right">
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Info"><i class="material-icons accent-text">info_outline</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Download"><i class="material-icons accent-text">file_download</i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="installed" class="col s12">Test 3</div>
+            
+            <div id="progress" class="col s12">
+
+                <div class="fileitem">
+
+                    <p class="title">Google Chrome</p>
+                    <p class="desc">Chrome is a fast, simple, and secure web browser, built for the modern web.</p><br />                        
+                    
+                    <div class="progress">
+                        <div class="determinate" style="width: 49%"></div>
+                    </div>
+                    <br />
+                    <p class="dlprogress"><span>49%</span> &mdash; Downloading</p>
+
+                    <div class="right">
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Website"><i class="material-icons accent-text">language</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Info"><i class="material-icons accent-text">info_outline</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Cancel"><i class="material-icons accent-text">highlight_off</i></a>
+                    </div>
+                </div>
+
+                <div class="fileitem">
+
+                    <p class="title">Project Sharon &mdash; Beta Tester Build 1</p>
+                    <p class="desc">You participate in the beta tests for Project Sharon. v0lture has released a new beta build today with many bug fixes and new features. Learn more by clicking the globe.</p><br />                        
+                    
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                    <br />
+                    <p class="dlprogress"><span>Installing</span></p>
+
+                    <div class="right">
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Enforced by administrator"><i class="material-icons accent-text">business</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Website"><i class="material-icons accent-text">language</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Info"><i class="material-icons accent-text">info_outline</i></a>
+                        <a href="#" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Cancel"><i class="material-icons accent-text">highlight_off</i></a>
+                    </div>
+                </div>
+
+            </div>
+        
+        </div>
+
+        <!-- Modals -->
+        <div id="appinfo" class="modal bottom-sheet modal-fixed-footer">
+            <div class="modal-content">
+                <h4>Microsoft Office 2016</h4>
+                <p>A suite of applications for word processing, presentations, data analysis and more.</p><br /><br />
+
+                <p>
+                    <b>Information by administrator</b>:<br />
+                    Office 2016 is automatically installed and kept up-to-date with this application.<br />
+                    For any questions about using any part of this application please contact the IT helpdesk.
+                </p><br />
+
+                <p>
+                    Developer &mdash; Microsoft<br />
+                    Version &mdash; v1.0.0<br />
+                    Mandatory &mdash; Yes<br />
+                    Categories &mdash; Application, Office, Productivity
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat accent-text">Install</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat accent-text">Close</a>
+            </div>
+        </div>
+
+        <!-- resources -->
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+        <script src="js/jquery.js"></script>
+        <script src="js/materialize.min.js"></script>
+        <script>if (window.module) module = window.module;</script>
+    </body>
+
+</html>

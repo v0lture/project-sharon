@@ -1,0 +1,109 @@
+body {
+    color: white;
+    background: #303030;
+}
+
+.accent {
+    background: #4CAF50 !important;
+}
+
+.accent-text {
+    color: #4CAF50 !important;
+}
+
+/* header */
+.header {
+    background: #212121;
+    width: 100%;
+    padding: 15px 30px;
+}
+
+.header > .right {
+    margin-top: 5px;
+}
+
+/* tabs */
+.tabs {
+    background: #212121;
+}
+
+.col.s12 {
+    margin: 0;
+    padding: 0;
+}
+
+.tabs .indicator {
+    background-color: #4CAF50;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    color: #4CAF50;
+}
+
+.tabs .tab a {
+    color: #388E3C;
+}
+
+/* progress */
+.progress {
+    margin: 0;
+    background: #202020;
+    /*display: none;*/
+}
+
+.progress > .indeterminate, .progress > .determinate {
+    background: #4CAF50;
+}
+
+/* file item container */
+.fileitem {
+    padding: 15px;
+    margin: 30px;
+    background: #373737;
+    border-radius: 5px;
+}
+
+p {
+    margin: 0;
+}
+
+.fileitem > .title {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.fileitem > .desc {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.fileitem > .dlprogress {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.fileitem > .dlprogress > span {
+    font-weight: 300;
+}
+
+.fileitem > .right {
+    margin-top: -35px;
+}
+
+/* settings */
+.settings-pane {
+    padding: 15px;
+}
+
+/* modals */
+.modal .modal-content {
+    background: #424242;
+}
+
+.modal .modal-footer {
+    background-color: #424242;
+}
+
+.modal.modal-fixed-footer .modal-footer {
+    border-top: none;
+}

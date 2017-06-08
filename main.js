@@ -42,3 +42,7 @@ app.on("will-quit", (e) => {
     console.log("Still running in the background.");
     e.preventDefault();
 })
+
+app.on("quit", (e) => {
+    // on app exit
+})

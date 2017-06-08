@@ -1,0 +1,51 @@
+<DOCTYPE html>
+<html>
+
+    <head>
+        <title>Project Sharon: Settings</title>
+
+        <!-- Design resources -->
+        <link rel="stylesheet" href="css/materialize.min.css">
+        <link rel="stylesheet" href="css/sharon.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- header -->
+        <div class="header z-depth-2">
+            <div class="right">
+                <a href="index.html" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Settings"><i class="material-icons">close</i></a>
+            </div>
+            <h5><img src="img/app.png" alt="Project Sharon App Logo" style="height: 24px;"></img> <span style="padding-left: 10px;">Project Sharon &mdash; Settings</span></h5>
+        </div>
+
+        <!-- Indeterminate loader -->
+        <div class="progress" id="toploader" style="display:none;">
+            <div class="indeterminate accent"></div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="row">
+            <div class="col s12">
+            <ul class="tabs">
+                <li class="tab"><a href="#console" class="waves-effect waves-light">Console</a></li>
+            </ul>
+            </div>
+            <div id="console" class="col s12">
+                <div class="settings-pane">
+                    <p><b>Connected</b> to Project Sharon Management Console at <b>psmc.test.local</b></p><br />
+                    <a href="#" class="btn accent white-text waves-effect waves-light">Connect</a>
+                    <a href="#" class="btn accent white-text waves-effect waves-light">Disconnect</a>
+                </div>
+            </div>
+        
+        </div>
+
+        <!-- resources -->
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+        <script src="js/jquery.js"></script>
+        <script src="js/materialize.min.js"></script>
+        <script>if (window.module) module = window.module;</script>
+    </body>
+
+</html>
