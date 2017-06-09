@@ -1,0 +1,103 @@
+<DOCTYPE html>
+<html>
+
+    <head>
+        <title>Project Sharon: Onboarding</title>
+
+        <!-- Design resources -->
+        <link rel="stylesheet" href="css/materialize.min.css">
+        <link rel="stylesheet" href="css/sharon.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- header -->
+        <div class="header z-depth-2">
+            <h5><img src="img/app.png" alt="Project Sharon App Logo" style="height: 24px;"></img> <span style="padding-left: 10px;">Project Sharon &mdash; Onboarding</span></h5>
+        </div>
+
+        <!-- Indeterminate loader -->
+        <div class="progress" id="toploader" style="display:none;">
+            <div class="indeterminate accent"></div>
+        </div>
+
+        <div class="onboarding" id="details">
+            <p class="title">Welcome to Project Sharon!</p>
+            <p>Enter the details about your management console below to continue.</p><br />
+
+            <p>Don't have a management console running? Go to sharon.v0lture.com to use a community version or instructions on setting up your own console.</p><br />
+        
+            <form method="GET" action="javascript:testMC()">
+
+                <div class="row">
+                    <div class="input-field col s4">
+
+                        <input type="text" id="host"></input>
+                        <label for="host">Management Console Host</label>
+
+                    </div>
+
+                    <div class="input-field col s4">
+
+                        <input type="text" id="path"></input>
+                        <label for="path">Management Console Path</label>
+
+                    </div>
+
+                    <div class="input-field col s4">
+
+                        <input type="text" id="mode" value="deployment"></input>
+                        <label for="mode">Management Console Mode</label>
+
+                    </div>
+
+                    <div class="input-field col s6">
+
+                        <input type="text" id="username"></input>
+                        <label for="username">Username</label>
+
+                    </div>
+
+                    <div class="input-field col s6">
+
+                        <input type="text" id="key"></input>
+                        <label for="key">Key</label>
+
+                    </div>
+                </div>
+
+                <p id="error"><i class="material-icons left accent-text">warning</i> <span></span></p>
+
+                <button type="submit" class="btn waves-effect waves-light accent white-text">Save</button>
+                <a href="#" onclick="testEnv();" class="btn-flat waves-effect waves-light white-text">Testing Mode</a>
+
+            </form>
+        </div>
+
+        <!-- joining -->
+        <div class="onboarding" style="display: none;" id="joining">
+            <div class="center-align onboarding">
+                <p class="title">Joining the Management Console...</p>
+            </div>
+        </div>
+
+        <!-- MC join modal -->
+        <div id="MCinfo" class="modal modal-fixed-footer">
+            <div class="modal-content">
+            </div>
+
+            <div class="modal-footer">
+                <a href="#!" onclick="joinMC();" class="modal-action modal-close waves-effect waves-light btn-flat accent-text">Join</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat accent-text">Cancel</a>
+            </div>
+        </div>
+
+        <!-- resources -->
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+        <script src="js/jquery.js"></script>
+        <script src="js/materialize.min.js"></script>
+        <script src="js/onboarding.js"></script>
+        <script>if (window.module) module = window.module;</script>
+    </body>
+
+</html>

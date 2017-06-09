@@ -107,3 +107,21 @@ p {
 .modal.modal-fixed-footer .modal-footer {
     border-top: none;
 }
+
+/* onboarding */
+.onboarding {
+    padding: 15px;
+}
+
+.onboarding > p {
+    font-size: 16px;
+}
+
+.onboarding > .title {
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.onboarding > form > #error {
+    display: none;
+}

@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/v0lture/project-sharon#readme",
   "dependencies": {
-    "electron": "^1.6.10"
+    "electron": "^1.6.10",
+    "jsonfile": "^3.0.0"
   }
 }
