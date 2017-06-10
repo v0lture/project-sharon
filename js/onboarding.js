@@ -52,7 +52,7 @@ function testMC() {
                 console.dir(output);
 
                 $(".modal").modal();
-                $("#MCinfo").modal('open');
+                $("#MCinfo").modal("open");
 
                 $("#MCinfo > .modal-content").html("<h4>Join Management Console?</h4>"+warning+"<p>You are trying to join Management Console <b>"+output.console.name+"</b> in company <b>"+output.console.company+"</b> &mdash; v"+output.console.version+"<br /><br /><b>About this Management Console</b>:<br />"+output.messages.general+"<br /><br /><b>Data collection policy</b>:<br />"+output.messages.collected+"<br /><br /><b>Project Sharon use policy:</b><br />"+output.messages.use+"<br /><br />Joining this Management Console will grant the administrators access over your device via application/file policies, remote access, execution, and device monitoring. You will be granted access to mandatory and optional applications/files to install/download.<br />Depending on your administrator's configuration, you may be able to leave this console by pressing the 'Leave' button under Console in the settings menu.<br /><br /><b>Press Cancel to abort joining this console and go back to the details configuration menu.<br />Press Join to join the Management Console and agree to the policies outlined above.</b></p>");
             }

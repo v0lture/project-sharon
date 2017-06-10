@@ -2,6 +2,7 @@
 const electron = require("electron");
 const app = electron.app;
 const {ipcMain} = electron.app;
+const {Menu} = require("electron");
 const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
 const url = require("url");
@@ -11,7 +12,7 @@ let mainWindow;
 
 // create main app window
 function spawnAppWindow(item) {
-    mainWindow = new BrowserWindow({width: 800, height: 600})
+    mainWindow = new BrowserWindow({width: 800, height: 600});
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, item+".html"),
         protocol: "file:",
@@ -27,6 +28,8 @@ function spawnAppWindow(item) {
 
 // handle app events
 app.on("ready", () => {
+    // delete menus
+    Menu.setApplicationMenu(null);
     // check if app config is set
     var configpath = app.getPath("appData")+"/project-sharon-client/management.json";
 
