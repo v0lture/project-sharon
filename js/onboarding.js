@@ -1,3 +1,6 @@
+/*global Materialize */
+/*eslint no-undef: "error"*/
+
 var os = require("os");
 const {ipcRenderer} = require("electron");
 
@@ -101,7 +104,7 @@ ipcRenderer.on("join-management-console-reply", (event, arg) => {
 
     if(arg.state === "success"){
         $("#toploader").hide();
-        window.location.href = "index.html";
+        window.location = "index.html";
     } else {
         $("#toploader").hide();
         $("#details").show();

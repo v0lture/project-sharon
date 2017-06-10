@@ -21,7 +21,7 @@ ipcMain.on("join-management-console", (event, arg) => {
             "user": arg.user,
             "key": arg.key
         }
-    }
+    };
 
     var configpath = app.getPath("appData")+"/project-sharon-client/management.json";
 
@@ -29,9 +29,9 @@ ipcMain.on("join-management-console", (event, arg) => {
 
     jsonfile.writeFile(configpath, data, function (err) {
         if(err === null){
-            event.sender.send('join-management-console-reply', {"state": "success", "message": ""});
+            event.sender.send("join-management-console-reply", {"state": "success", "message": ""});
         } else {
-            event.sender.send('join-management-console-reply', {"state": "error", "message": err});
+            event.sender.send("join-management-console-reply", {"state": "error", "message": err});
         }
-    })
-})
+    });
+});
