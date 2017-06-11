@@ -11,15 +11,33 @@ body {
     color: #4CAF50 !important;
 }
 
+p {
+    margin: 0;
+}
+
 /* header */
 .header {
-    background: #212121;
-    width: 100%;
-    padding: 15px 30px;
+    background: #303030;
 }
 
 .header > .right {
     margin-top: 5px;
+}
+
+.searchwrap {
+    padding: 5px 60px;
+    background: #212121;
+}
+
+/* thinbar */
+.thinbar {
+    padding: 7.5px 17.5px;
+    width: 100%;
+    background: #212121;
+}
+
+.thinbar > .right {
+    margin-top: -32.5px;
 }
 
 /* tabs */
@@ -56,38 +74,69 @@ body {
 }
 
 /* file item container */
-.fileitem {
+#catalogue, #installed {
     padding: 15px;
-    margin: 30px;
-    background: #373737;
+}
+
+.catitem {
+    background: #262626;
+    width: 100%;
+    margin-bottom: 20px;
     border-radius: 5px;
 }
 
-p {
-    margin: 0;
-}
-
-.fileitem > .title {
-    font-size: 18px;
-    font-weight: 300;
-}
-
-.fileitem > .desc {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.fileitem > .dlprogress {
-    font-size: 16px;
+.catitem > .header {
     text-transform: uppercase;
+    font-size: 14px;
+    padding: 15px 30px;
+    border-radius: 5px;
+    background: #262626;
 }
 
-.fileitem > .dlprogress > span {
-    font-weight: 300;
+.catitem > .header > .right {
+    margin-top: -28px;
 }
 
-.fileitem > .right {
-    margin-top: -35px;
+.catitem > .scroll {
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.catitem > .scroll > .items {
+    padding: 15px;
+    max-height: 164px;
+    min-width: 100%;
+    white-space: nowrap;
+}
+
+.catitem > .scroll > .items > .item {
+    background: #424242;
+    width: 134px;
+    min-height: 134px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.catitem > .scroll > .items > .item > .center-align > img {
+    height: 64px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.catitem > .scroll > .items > .item > .title {
+    font-size: 15px;
+}
+
+.catitem > .scroll > .items > .item > .corner {
+    bottom: 0;
+    right: 0;
+    margin: 5px 7.5px;
+    position: absolute;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #4CAF50;
 }
 
 /* settings */

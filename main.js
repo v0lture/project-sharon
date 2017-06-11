@@ -8,16 +8,18 @@ const path = require("path");
 const url = require("url");
 const fs = require("fs");
 require("./js/join-leave.js");
+require("./js/ux-install.js");
 let mainWindow;
 
 // create main app window
 function spawnAppWindow(item) {
-    mainWindow = new BrowserWindow({width: 800, height: 600});
+    mainWindow = new BrowserWindow({width: 1200, height: 800});
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, item+".html"),
         protocol: "file:",
         slashes: true
     }));
+    mainWindow.openDevTools();
 
     console.log("Opening "+item);
     // on close event
