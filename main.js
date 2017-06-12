@@ -7,9 +7,9 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
 const url = require("url");
 const fs = require("fs");
-require("./js/join-leave.js");
-require("./js/ux-install.js");
 let mainWindow;
+require("./js/join-leave.js");
+const uxinstall = require("./js/ux-install.js");
 
 // create main app window
 function spawnAppWindow(item) {
@@ -20,6 +20,7 @@ function spawnAppWindow(item) {
         slashes: true
     }));
     mainWindow.openDevTools();
+    uxinstall.define(mainWindow);
 
     console.log("Opening "+item);
     // on close event

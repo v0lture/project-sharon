@@ -42,7 +42,7 @@ ipcMain.on("join-management-console", (event, arg) => {
             console.log("Error occurred while creating directory.");
             console.log(e);
         }
-    })
+    });
 
     
 });

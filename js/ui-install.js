@@ -22,6 +22,10 @@ function stateUIRefresh() {
         $("#installed-pending").slideUp();
     }
 
+    if(states.downloading === 0){
+        $("#installed-downloading").slideUp();
+    }
+
     if(states.installed === 0){
         $("#installed-installed").slideUp();
     }
@@ -31,7 +35,7 @@ function stateUIRefresh() {
     var active = states.installed;
     
     console.log("Active: "+active+" -- Total: "+total);
-    if(states.pending > 0){
+    if(states.installed === 0){
         $("#toploader > div").removeClass("determinate").addClass("indeterminate").attr("style", "");
     } else {
         $("#toploader > div").addClass("determinate").removeClass("indeterminate").attr("style", "width: "+((active / total)*100)+"%");
@@ -43,6 +47,21 @@ function stateUIRefresh() {
         $("#toploader").show();
     }
 }
+
+// function dump queue
+function killqueue() {
+    ipcRenderer.send("install-job-abort");
+}
+
+ipcRenderer.on("install-job-aborted", (e, a) => {
+    $("#toploader").hide();
+    states.failed = states.pending;
+    states.pending = 0;
+    states.jobs = 0;
+    $("#installed-pending > .scroll > .items").html("");
+    stateUIRefresh();
+    Materialize.toast("Job queue aborted.", 1000);
+})
 
 // install an app from its appid
 function install(appid){
@@ -57,13 +76,26 @@ function install(appid){
     stateUIRefresh();
 }
 
-// on ready response
-ipcRenderer.on("install-job-running", (e, a) => {
+// ondownload ersponse
+ipcRenderer.on("install-job-downloading", (e, a) => {
 
     states.pending--;
-    states.installing++;
+    states.downloading++;
 
     $("#appid-"+a.appid+"-pending").remove();
+    $("#installed-downloading").show();
+    $("#installed-downloading > .scroll > .items").append("<div id=\"appid-"+a.appid+"-downloading\" class=\"item waves-effect waves-light\"><div class=\"center-align\"><img src=\"img/app.png\"></img></div><p class=\"title\">"+a.appid+"</p><p class=\"corner right\">Downloading</p></div>");
+    stateUIRefresh();
+});
+
+
+// on ready response
+ipcRenderer.on("install-job-installing", (e, a) => {
+
+    states.downloading--;
+    states.installing++;
+
+    $("#appid-"+a.appid+"-downloading").remove();
     $("#installed-installing").show();
     $("#installed-installing > .scroll > .items").append("<div id=\"appid-"+a.appid+"-installing\" class=\"item waves-effect waves-light\"><div class=\"center-align\"><img src=\"img/app.png\"></img></div><p class=\"title\">"+a.appid+"</p><p class=\"corner right\">Installing</p></div>");
     stateUIRefresh();
@@ -84,6 +116,12 @@ ipcRenderer.on("install-job-done", (e, a) => {
 
 
 });
+
+// hyper mode
+function hyper(rate) {
+    console.log("Adjusting job rate to "+rate+"...");
+    ipcRenderer.send("install-job-hyper", rate);
+}
 
 // test func
 function installtest() {

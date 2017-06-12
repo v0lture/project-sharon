@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="css/materialize.min.css">
         <link rel="stylesheet" href="css/sharon.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script src="js/ui-install.js"></script>
+        <script src="js/search.js"></script>
     </head>
 
     <body>
@@ -51,7 +54,7 @@
                 <div class="catitem">
                     <div class="header">
                         <p>Applications</p>
-                        <a href="#" onclick="search('category:applications');" class="right btn-flat waves-effect waves-light accent-text">More</a>
+                        <a href="javascript:search('category:applications');" class="right btn-flat waves-effect waves-light accent-text">More</a>
                     </div>
                     <div class="scroll">
                         <div class="items">
@@ -80,7 +83,7 @@
                 <div class="catitem">
                     <div class="header">
                         <p>Files</p>
-                        <a href="#" onclick="search('category:applications');" class="right btn-flat waves-effect waves-light accent-text">More</a>
+                        <a href="javascript:search('category:files');" class="right btn-flat waves-effect waves-light accent-text">More</a>
                     </div>
                     <div class="scroll">
                         <div class="items">
@@ -111,6 +114,16 @@
                 </div>
 
                 <!-- catagory item -->
+                <div class="catitem" style="display: none;" id="installed-downloading">
+                    <div class="header">
+                        <p>Downloading</p>
+                    </div>
+                    <div class="scroll">
+                        <div class="items"></div>
+                    </div>
+                </div>
+
+                <!-- catagory item -->
                 <div class="catitem" id="installed-has-update" style="display: none;">
                     <div class="header">
                         <p>Updates Available</p>
@@ -125,6 +138,7 @@
                 <div class="catitem" style="display: none;" id="installed-pending">
                     <div class="header">
                         <p>Pending</p>
+                        <a href="javascript:killqueue();" class="right btn-flat waves-effect waves-light accent-text">Abort Queue</a>
                     </div>
                     <div class="scroll">
                         <div class="items"></div>
@@ -147,7 +161,6 @@
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
         <script src="js/jquery.js"></script>
         <script src="js/materialize.min.js"></script>
-        <script src="js/ui-install.js"></script>
         <script>if (window.module) module = window.module;</script>
     </body>
 
