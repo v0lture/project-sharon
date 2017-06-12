@@ -8,7 +8,8 @@ var states = {
     "has-update": 0,
     "updating": 0,
     "downloading": 0,
-    "failed": 0
+    "failed": 0,
+    "jobs": 0
 };
 
 // update UI based on values
@@ -24,6 +25,23 @@ function stateUIRefresh() {
     if(states.installed === 0){
         $("#installed-installed").slideUp();
     }
+
+    // make progress bar useful
+    var total = states.jobs;
+    var active = states.installed;
+    
+    console.log("Active: "+active+" -- Total: "+total);
+    if(states.pending > 0){
+        $("#toploader > div").removeClass("determinate").addClass("indeterminate").attr("style", "");
+    } else {
+        $("#toploader > div").addClass("determinate").removeClass("indeterminate").attr("style", "width: "+((active / total)*100)+"%");
+    }
+
+    if((active / total) >= 1){
+        $("#toploader").hide();
+    } else {
+        $("#toploader").show();
+    }
 }
 
 // install an app from its appid
@@ -32,6 +50,7 @@ function install(appid){
     $("#installed-pending > .scroll > .items").append("<div id=\"appid-"+appid+"-pending\" class=\"item waves-effect waves-light\"><div class=\"center-align\"><img src=\"img/app.png\"></img></div><p class=\"title\">"+appid+"</p><p class=\"corner right\">Pending</p></div>");
 
     states.pending++;
+    states.jobs++;
 
     // begin install job
     ipcRenderer.send("install-job-begin", {appid});
@@ -46,7 +65,6 @@ ipcRenderer.on("install-job-running", (e, a) => {
 
     $("#appid-"+a.appid+"-pending").remove();
     $("#installed-installing").show();
-    $("#toploader").show();
     $("#installed-installing > .scroll > .items").append("<div id=\"appid-"+a.appid+"-installing\" class=\"item waves-effect waves-light\"><div class=\"center-align\"><img src=\"img/app.png\"></img></div><p class=\"title\">"+a.appid+"</p><p class=\"corner right\">Installing</p></div>");
     stateUIRefresh();
 });
@@ -57,13 +75,14 @@ ipcRenderer.on("install-job-done", (e, a) => {
     states.installing--;
     states.installed++;
 
-    $("#toploader").hide();
     $("#appid-"+a.appid+"-installing").remove();
     Materialize.toast("AppID "+a.appid+" is installed.", 5000);
 
     $("#installed-installed").show();
-    $("#installed-installed > .scroll > .items").append("<div id=\"appid-"+a.appid+"-installed\" class=\"item waves-effect waves-light\"><div class=\"center-align\"><img src=\"img/app.png\"></img></div><p class=\"title\">"+a.appid+"</p><p class=\"corner right\">Installing</p></div>");
+    $("#installed-installed > .scroll > .items").append("<div id=\"appid-"+a.appid+"-installed\" class=\"item waves-effect waves-light\"><div class=\"center-align\"><img src=\"img/app.png\"></img></div><p class=\"title\">"+a.appid+"</p><p class=\"corner right\">Installed</p></div>");
     stateUIRefresh();
+
+
 });
 
 // test func

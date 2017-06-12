@@ -24,14 +24,25 @@ ipcMain.on("join-management-console", (event, arg) => {
     };
 
     var configpath = app.getPath("appData")+"/project-sharon-client/management.json";
+    
+    fs.mkdir(app.getPath("appData")+"/project-sharon-client", (e) => {
+        if(e === null){
+            console.log("Writing config "+configpath+"...");
 
-    console.log("Writing config "+configpath+"...");
-
-    jsonfile.writeFile(configpath, data, function (err) {
-        if(err === null){
-            event.sender.send("join-management-console-reply", {"state": "success", "message": ""});
+            jsonfile.writeFile(configpath, data, function (err) {
+                if(err === null){
+                    event.sender.send("join-management-console-reply", {"state": "success", "message": ""});
+                } else {
+                    event.sender.send("join-management-console-reply", {"state": "error", "message": err});
+                    console.log(err);
+                }
+            });
         } else {
-            event.sender.send("join-management-console-reply", {"state": "error", "message": err});
+            event.sender.send("join-management-console-reply", {"state": "error", "message": e});
+            console.log("Error occurred while creating directory.");
+            console.log(e);
         }
-    });
+    })
+
+    
 });
