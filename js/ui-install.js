@@ -61,7 +61,7 @@ ipcRenderer.on("install-job-aborted", (e, a) => {
     $("#installed-pending > .scroll > .items").html("");
     stateUIRefresh();
     Materialize.toast("Job queue aborted.", 1000);
-})
+});
 
 // install an app from its appid
 function install(appid){

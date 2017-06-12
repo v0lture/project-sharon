@@ -42,7 +42,7 @@ function beginQueue(appid) {
         console.log("Finished queue job for AppID "+appid);
         processQueue();
     }, 10000);
-}
+};
 
 // Handle queuing
 function processQueue(){
@@ -78,4 +78,4 @@ ipcMain.on("install-job-abort", (e, a) => {
 ipcMain.on("install-job-hyper", (e, a) => {
     activemax = a;
     console.log("HYPER! New rate: "+a);
-})
+});
