@@ -26,7 +26,7 @@ ipcMain.on("join-management-console", (event, arg) => {
     var configpath = app.getPath("appData")+"/project-sharon-client/management.json";
     
     fs.mkdir(app.getPath("appData")+"/project-sharon-client", (e) => {
-        if(e === null){
+        if(e === null || e.code === "EEXIST"){
             console.log("Writing config "+configpath+"...");
 
             jsonfile.writeFile(configpath, data, function (err) {
@@ -45,4 +45,9 @@ ipcMain.on("join-management-console", (event, arg) => {
     });
 
     
+});
+
+// leave a console
+ipcMain.on("leave-management-console", (e, a) => {
+
 });

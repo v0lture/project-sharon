@@ -8,37 +8,47 @@
         <link rel="stylesheet" href="css/materialize.min.css">
         <link rel="stylesheet" href="css/sharon.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script src="js/ui-settings.js"></script>
     </head>
 
     <body>
-        <!-- header -->
-        <div class="header z-depth-2">
+        <!-- thin bar -->
+        <div class="thinbar">
+            <p class="title"><b>Project Sharon</b> &mdash; My Company Name</p>
             <div class="right">
-                <a href="index.html" class="btn-floating transparent waves-effect waves-light z-depth-0 tooltipped" data-delay="50" data-position="bottom" data-tooltip="Settings"><i class="material-icons">close</i></a>
+                <a href="javascript:breakOp();" class="btn-floating transparent z-depth-0 waves-effect waves-light"><i class="material-icons left">eject</i></a>
+                <a href="index.html" class="btn-floating transparent z-depth-0 waves-effect waves-light"><i class="material-icons left">close</i></a>
             </div>
-            <h5><img src="img/app.png" alt="Project Sharon App Logo" style="height: 24px;"></img> <span style="padding-left: 10px;">Project Sharon &mdash; Settings</span></h5>
         </div>
-
-        <!-- Indeterminate loader -->
-        <div class="progress" id="toploader" style="display:none;">
-            <div class="indeterminate accent"></div>
+        <!-- search -->
+        <div class="searchwrap">
+            <nav>
+                <div class="nav-wrapper header">
+                    <form action="javascript:cmd();">
+                        <div class="input-field">
+                            <input id="cli" type="search" required placeholder="Enter a command">
+                            <label class="label-icon" for="search"><i class="material-icons">code</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>
+                </div>
+            </nav>
         </div>
-
-        <!-- Tabs -->
+        <!-- loader -->
+        <div class="progress" style="display: none;" id="toploader">
+            <div class="indeterminate"></div>
+        </div>
+        <!-- progress -->
+        <div class="thinbar">
+            <p class="title" id="cmdupdate">Idle</p>
+        </div>
+        <!-- tabs -->
         <div class="row">
             <div class="col s12">
-            <ul class="tabs">
-                <li class="tab"><a href="#console" class="waves-effect waves-light">Console</a></li>
-            </ul>
+                <ul class="tabs">
+                </ul>
             </div>
-            <div id="console" class="col s12">
-                <div class="settings-pane">
-                    <p><b>Connected</b> to Project Sharon Management Console at <b>psmc.test.local</b></p><br />
-                    <a href="#" class="btn accent white-text waves-effect waves-light">Connect</a>
-                    <a href="#" class="btn accent white-text waves-effect waves-light">Disconnect</a>
-                </div>
-            </div>
-        
         </div>
 
         <!-- resources -->
