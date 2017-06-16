@@ -1,3 +1,5 @@
+/*global Materialize */
+/*eslint no-undef: "error"*/
 const {ipcRenderer} = require("electron");
 
 function cmd(){

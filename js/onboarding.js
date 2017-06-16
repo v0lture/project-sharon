@@ -8,15 +8,14 @@ function testMC() {
     $("#toploader").show();
     $("#error").hide();
 
-    var host = $("#host").val();
-    var path = $("#path").val();
+    var url = $("#url").val();
     var mode = $("#mode").val();
     var user = $("#username").val();
     var key = $("#key").val();
     var ext;
     var warning = "";
 
-    if(host === "" || path === "" || mode === "" || user === "" || key === ""){
+    if(url === "" || mode === "" || user === "" || key === ""){
         $("#toploader").hide();
         $("#error").show();
         $("#error > span").text("Please fill out all fields");
@@ -59,7 +58,7 @@ function testMC() {
         }
     };
 
-    xhttp.open("GET", "http://"+host+"/"+path+"/client-register"+ext, true);
+    xhttp.open("GET", url+"/client-register"+ext, true);
     xhttp.send();
 }
 
@@ -69,13 +68,12 @@ function joinMC() {
     $("#joining").show();
     $("#toploader").show();
 
-    var host = $("#host").val();
-    var path = $("#path").val();
+    var url = $("#url").val();
     var mode = $("#mode").val();
     var user = $("#username").val();
     var key = $("#key").val();
 
-    if(host === "" || path === "" || mode === "" || user === "" || key === ""){
+    if(url === "" || mode === "" || user === "" || key === ""){
         $("#toploader").hide();
         $("#details").show();
         $("#joining").hide();
@@ -84,7 +82,7 @@ function joinMC() {
     }
 
     // submit req
-    ipcRenderer.send("join-management-console", {host, path, mode, user, key});
+    ipcRenderer.send("join-management-console", {url, mode, user, key});
 }
 
 // testing purposes only
@@ -95,7 +93,11 @@ function testEnv() {
     $("#username").val(os.userInfo().username);
     $("#key").val("IGNOREKEY");
     Materialize.updateTextFields();
-    testMC();
+    
+    $(".modal").modal();
+    $("#MCinfo").modal("open");
+
+    $("#MCinfo > .modal-content").html("<h4>Enter demo mode?</h4><p><b>You pressed the testing mode button.</b><br />You will not be able to connect to any management consoles if you accept until you leave testing mode within settings.<br />Testing mode will not make any changes to your device or grant your device to any organization's console.<br /><br />If you are not a developer, please click Cancel. Otherwise, click Join to proceed.</p>");
 }
 
 // handle ipc response

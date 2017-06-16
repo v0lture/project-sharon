@@ -10,7 +10,7 @@ var queue = {
     "updating": 0,
     "updated": 0,
     "failed": 0
-}
+};
 
 var queueitems = new Array();
 var queuei = 0;
@@ -42,7 +42,7 @@ function beginQueue(appid) {
         console.log("Finished queue job for AppID "+appid);
         processQueue();
     }, 10000);
-};
+}
 
 // Handle queuing
 function processQueue(){

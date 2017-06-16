@@ -12,8 +12,11 @@
 
     <body>
         <!-- header -->
-        <div class="header z-depth-2">
-            <h5><img src="img/app.png" alt="Project Sharon App Logo" style="height: 24px;"></img> <span style="padding-left: 10px;">Project Sharon &mdash; Onboarding</span></h5>
+        <div class="thinbar">
+            <p class="title"><b>Project Sharon</b> &mdash; Onboarding</p>
+            <div class="right">     
+                <a href="settings.html" class="btn-floating transparent z-depth-0 waves-effect waves-light"><i class="material-icons left">settings</i></a>
+            </div>
         </div>
 
         <!-- Indeterminate loader -->
@@ -30,21 +33,14 @@
             <form method="GET" action="javascript:testMC()">
 
                 <div class="row">
-                    <div class="input-field col s4">
+                    <div class="input-field col s6">
 
-                        <input type="text" id="host"></input>
-                        <label for="host">Management Console Host</label>
-
-                    </div>
-
-                    <div class="input-field col s4">
-
-                        <input type="text" id="path"></input>
-                        <label for="path">Management Console Path</label>
+                        <input type="text" id="url" value="https://"></input>
+                        <label for="url">Management Console URL</label>
 
                     </div>
 
-                    <div class="input-field col s4">
+                    <div class="input-field col s6">
 
                         <input type="text" id="mode" value="deployment"></input>
                         <label for="mode">Management Console Mode</label>
@@ -60,8 +56,8 @@
 
                     <div class="input-field col s6">
 
-                        <input type="text" id="key"></input>
-                        <label for="key">Key</label>
+                        <input type="text" id="password"></input>
+                        <label for="password">Password</label>
 
                     </div>
                 </div>
