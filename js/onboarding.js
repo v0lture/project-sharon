@@ -58,7 +58,7 @@ function testMC() {
         }
     };
 
-    xhttp.open("GET", url+"/client-register"+ext, true);
+    xhttp.open("GET", url+"/client-endpoint/register"+ext, true);
     xhttp.send();
 }
 

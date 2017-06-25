@@ -8,6 +8,7 @@ const path = require("path");
 const url = require("url");
 const fs = require("fs");
 let mainWindow;
+const configpath = app.getPath("appData")+"/project-sharon-client/management.json";
 require("./js/join-leave.js");
 const uxinstall = require("./js/ux-install.js");
 
@@ -20,7 +21,7 @@ function spawnAppWindow(item) {
         slashes: true
     }));
     mainWindow.openDevTools();
-    uxinstall.define(mainWindow);
+    uxinstall.define(mainWindow, app.getPath("appData")+"/project-sharon-client/packages.json");
 
     console.log("Opening "+item);
     // on close event
@@ -34,8 +35,6 @@ app.on("ready", () => {
     // delete menus
     Menu.setApplicationMenu(null);
     // check if app config is set
-    var configpath = app.getPath("appData")+"/project-sharon-client/management.json";
-
     console.log("Loading config "+configpath+"...");
 
     fs.access(configpath, fs.constants.R_OK | fs.constants.W_OK, (err) => {

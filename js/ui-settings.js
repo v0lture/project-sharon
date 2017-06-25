@@ -68,3 +68,14 @@ ipcRenderer.on("install-job-done", (e, a) => {
     $("div.searchwrap").slideDown();
     $("#cmdupdate").html("<b>Package Installed</b> &mdash; Appid "+a.appid+" is installed");
 });
+
+// Leaving MC
+ipcRenderer.on("leave-management-console-reply", (e, a) => {
+    $("#toploader").hide();
+    $("div.searchwrap").slideDown();
+    if(a.state === "success"){
+        $("#cmdupdate").html("<b>Finished</b> &mdash; Left management console successfully.");
+    } else {
+        $("#cmdupdate").html("<b>Failed</b> &mdash; Could not leave management console.");
+    }
+});

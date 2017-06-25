@@ -49,5 +49,12 @@ ipcMain.on("join-management-console", (event, arg) => {
 
 // leave a console
 ipcMain.on("leave-management-console", (e, a) => {
-
+    var configpath = app.getPath("appData")+"/project-sharon-client/management.json";
+    fs.unlink(configpath, (err) => {
+        if(err === null){
+            e.sender.send("leave-management-console-reply", {"state": "success", "message": ""});
+        } else {
+            e.sender.send("leave-management-console-reply", {"state": "error", "message": err});
+        }
+    })
 });

@@ -1,5 +1,6 @@
 // Runs from main process
 const {ipcMain} = require("electron");
+const jsonfile = require("jsonfile");
 
 var queue = {
     "pending": 0,
@@ -16,10 +17,31 @@ var queueitems = new Array();
 var queuei = 0;
 var activemax = 1;
 let mainWindow;
+let config;
 
-exports.define = (w) => {
+exports.define = (w, cfg) => {
     mainWindow = w;
+    config = cfg;
     return;
+}
+
+// publish installer changes
+function publishChange(appid, path){
+    obj = {
+        appid,
+        "state": "installed",
+        "time": Math.floor(new Date() / 1000),
+        path
+    };
+
+    jsonfile.writeFile(config, obj, {flag: 'a'}, function (err) {
+        if(err){
+            console.log("Error in publishChange():\r\n");
+            console.log(err);
+        } else {
+            console.log("Appended AppID "+appid+" to install config path");
+        }
+    });
 }
 
 // Download -> Install process
@@ -41,6 +63,7 @@ function beginQueue(appid) {
         queue.installed++;
         console.log("Finished queue job for AppID "+appid);
         processQueue();
+        publishChange(appid, "NOPATH!");
     }, 10000);
 }
 
@@ -78,4 +101,14 @@ ipcMain.on("install-job-abort", (e, a) => {
 ipcMain.on("install-job-hyper", (e, a) => {
     activemax = a;
     console.log("HYPER! New rate: "+a);
+});
+
+ipcMain.on("package-list", (event, a) => {
+    jsonfile.readFile(config, (err, d) => {
+        if(err){
+            event.sender.send("package-list-reply", {"state": "error", "error": err, "data": null});
+        } else {
+            event.sender.send("package-list-reply", {"state": "success", "error": null, "data": d});
+        }
+    })
 });

@@ -113,15 +113,28 @@ ipcRenderer.on("install-job-done", (e, a) => {
     $("#installed-installed").show();
     $("#installed-installed > .scroll > .items").append("<div id=\"appid-"+a.appid+"-installed\" class=\"item waves-effect waves-light\"><div class=\"center-align\"><img src=\"img/app.png\"></img></div><p class=\"title\">"+a.appid+"</p><p class=\"corner right\">Installed</p></div>");
     stateUIRefresh();
-
-
 });
 
-// hyper mode
-function hyper(rate) {
-    console.log("Adjusting job rate to "+rate+"...");
-    ipcRenderer.send("install-job-hyper", rate);
-}
+document.addEventListener("DOMContentLoaded", (e) => {
+    ipcRenderer.send("package-list", {});
+});
+
+ipcRenderer.on("package-list-reply", (e, a) => {
+
+    if(a.state === "error"){
+        console.warn("Failed to get package list.");
+        console.dir(a);
+    } else {
+        var ct = Object.keys(a.data).length;
+        var i;
+        while(ct >= i){
+            $("#installed-installed").show();
+            $("#installed-installed > .scroll > .items").append("<div id=\"appid-"+a[i].appid+"-installed\" class=\"item waves-effect waves-light\"><div class=\"center-align\"><img src=\"img/app.png\"></img></div><p class=\"title\">"+a[i].appid+"</p><p class=\"corner right\">Installed</p></div>");
+            stateUIRefresh();
+            i++;
+        }
+    }
+});
 
 // test func
 function installtest() {
